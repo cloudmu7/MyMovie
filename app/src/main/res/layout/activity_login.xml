@@ -1,28 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:background="@drawable/intro_background">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MyMovie"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:fontFamily="@font/alexbrush_regular"
+        android:textColor="@color/white"
+        android:layout_margin="75dp"
+        android:padding="30dp"/>
 
     <EditText
         android:id="@+id/login_Id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="12"
+        android:ems="10"
         android:inputType="text"
+        android:layout_gravity="center"
         android:hint="Id"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:textColorHint="#C8C8C8"
+        android:backgroundTint="@color/white"
+        android:layout_margin="10dp"/>
 
     <EditText
         android:id="@+id/login_Pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="12"
+        android:ems="10"
         android:inputType="textPassword"
-        android:layout_centerHorizontal="true"
-        android:hint="Password"5/>
+        android:layout_gravity="center"
+        android:hint="Password"
+        android:textColorHint="#C8C8C8"
+        android:backgroundTint="@color/white"
+        android:layout_margin="10dp"/>
 
-</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:textColor="#000000"
+        android:backgroundTint="#EFE4D7"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="회원가입"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="둘러보기"
+            android:textColor="#9CF0FF"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
