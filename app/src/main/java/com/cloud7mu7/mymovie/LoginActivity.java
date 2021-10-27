@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                             return;
                         }
                     }
-
                     Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
 
                 }else {
