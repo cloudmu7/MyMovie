@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMovie"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

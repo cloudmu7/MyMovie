@@ -8,27 +8,7 @@
     android:orientation="vertical"
     android:background="@drawable/main_background">
 
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="120dp"
-        android:background="@drawable/button_round"
-        android:layout_marginTop="70dp"
-        android:text="오늘의 박스오피스"
-        android:textStyle="bold"
-        android:gravity="bottom|right"
-        android:fontFamily="@font/gowundodum_regular"
-        android:layout_gravity="center"/>
 
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="120dp"
-        android:background="@drawable/button_round"
-        android:fontFamily="@font/gowundodum_regular"
-        android:text="영화관 찾기"
-        android:textStyle="bold"
-        android:gravity="bottom|right"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"/>
 
 
 
