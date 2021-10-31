@@ -6,8 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/main_background">
+    android:background="@drawable/main_background"
+    android:padding="16dp">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="오늘의 박스오피스"
+        android:backgroundTint="@color/black"
+        android:onClick="clickBox"/>
 
 
 
