@@ -37,19 +37,21 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView rank, movieNm, openDt;
+        private TextView rank, movieNm, openDt, audiAcc;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             rank = itemView.findViewById(R.id.movie_rank);
             movieNm = itemView.findViewById(R.id.movie_name);
             openDt = itemView.findViewById(R.id.movie_day);
+            audiAcc = itemView.findViewById(R.id.movie_count);
         }
 
         public void setItem(DailyBoxOfficeList item){
             rank.setText(item.getRank());
             movieNm.setText(item.getMovieNm());
             openDt.setText(item.getOpenDt());
+            audiAcc.setText("관객 수 : " + item.getAudiAcc() + "명");
         }
 
     }

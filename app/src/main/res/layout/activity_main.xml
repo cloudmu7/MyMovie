@@ -6,15 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/main_background"
-    android:padding="16dp">
+    android:background="@drawable/main_background">
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="150dp"
+        android:drawableTop="@drawable/ic_baseline_movie_24"
+        android:drawableTint="@color/white"
+        android:layout_gravity="center_horizontal"
         android:text="오늘의 박스오피스"
-        android:backgroundTint="@color/black"
+        android:textSize="20dp"
+        android:fontFamily="@font/gowundodum_regular"
+        android:padding="16dp"
+        android:backgroundTint="#9F6E4A"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         android:onClick="clickBox"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/ic_baseline_map_24"
+        android:drawableTint="@color/white"
+        android:text="영화관 찾기"
+        android:textSize="20dp"
+        android:fontFamily="@font/gowundodum_regular"
+        android:backgroundTint="#6A4C37"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:onClick="clickMap"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:drawableTop="@drawable/ic_baseline_event_note_24"
+        android:drawableTint="@color/white"
+        android:text="다이어리"
+        android:textSize="20dp"
+        android:fontFamily="@font/gowundodum_regular"
+        android:backgroundTint="#4C2D18"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="clickDiary"/>
 
 
 

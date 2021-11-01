@@ -18,4 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BoxOfficeActivity.class);
         startActivity(intent);
     }
+
+    public void clickMap(View view) {
+        Intent intent = new Intent(this, CinemaMapActivity.class);
+        startActivity(intent);
+    }
 }

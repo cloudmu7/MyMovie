@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_margin="30dp"
@@ -23,7 +23,7 @@
                 android:id="@+id/movie_rank"
                 android:layout_width="25dp"
                 android:layout_height="wrap_content"
-                android:background="#000410"
+                android:background="#403432"
                 android:text="1"
                 android:textColor="#FFFFFF"
                 android:layout_gravity="center"
@@ -39,7 +39,8 @@
                 android:textSize="25dp"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/gowundodum_regular"/>
 
             <TextView
                 android:id="@+id/movie_day"
@@ -49,7 +50,7 @@
                 android:text="날짜 : "
                 android:layout_gravity="bottom|center"
                 android:textColor="@color/black"
-                android:layout_marginRight="20dp"/>
+                android:fontFamily="@font/gowundodum_regular"/>
 
             <TextView
                 android:id="@+id/movie_count"
@@ -57,8 +58,9 @@
                 android:layout_height="match_parent"
                 android:text="관객 수 : "
                 android:layout_gravity="bottom|center"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/black"
-                android:layout_marginRight="20dp"/>
+                android:fontFamily="@font/gowundodum_regular"/>
 
 
         </LinearLayout>
