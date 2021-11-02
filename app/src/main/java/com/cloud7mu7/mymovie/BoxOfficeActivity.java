@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -25,11 +26,22 @@ public class BoxOfficeActivity extends AppCompatActivity {
 
     private String API_KEY = "a38d36f65eb1f8dea8fdc1dffffcfdb2";
     private final SimpleDateFormat dateFm = new SimpleDateFormat("yyyyMMdd");
+    private final SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+
+    TextView todayTv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_box_office);
+        todayTv = findViewById(R.id.today);
+
+        Date date = new Date();
+        date = new Date(date.getTime()+(1000*60*60*24*-1));
+
+        String yesterday = simpleDate.format(date);
+        todayTv.setText(yesterday + "일 기준");
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());

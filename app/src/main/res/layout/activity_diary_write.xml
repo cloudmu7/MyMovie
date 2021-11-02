@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiaryWriteActivity"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="10dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="제목"
+        android:padding="16dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/ic_baseline_local_see_24"
+        android:background="#FFEBE5"
+        android:padding="16dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="#F8DDD3"
+        android:text="image upload"
+        android:textColor="@color/black"
+        android:fontFamily="@font/gowundodum_regular"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:hint="내용"
+        android:gravity="start"
+        android:padding="16dp"
+        android:background="@drawable/memo_border"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="#F8DDD3"
+        android:text="작성 완료"
+        android:textColor="@color/black"
+        android:fontFamily="@font/gowundodum_regular"
+        android:textStyle="bold"/>
+
+</LinearLayout>

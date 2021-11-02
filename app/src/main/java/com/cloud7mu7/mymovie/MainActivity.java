@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CinemaMapActivity.class);
         startActivity(intent);
     }
+
+    public void clickDiary(View view) {
+        Intent intent = new Intent(this, DiaryActivity.class);
+        startActivity(intent);
+    }
 }

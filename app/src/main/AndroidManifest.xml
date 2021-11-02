@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMovie"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CinemaMapActivity"></activity>
+        <activity android:name=".DiaryWriteActivity"></activity>
+        <activity android:name=".DiaryActivity" />
+        <activity android:name=".CinemaMapActivity" />
         <activity android:name=".BoxOfficeActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
