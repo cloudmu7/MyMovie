@@ -10,36 +10,31 @@
     android:layout_margin="10dp">
 
     <EditText
+        android:id="@+id/diary_title_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="제목"
+        android:background="@drawable/memo_border"
         android:padding="16dp"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:src="@drawable/ic_baseline_local_see_24"
-        android:background="#FFEBE5"
-        android:padding="16dp"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:backgroundTint="#F8DDD3"
-        android:text="image upload"
-        android:textColor="@color/black"
-        android:fontFamily="@font/gowundodum_regular"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
 
     <EditText
+        android:id="@+id/diary_moviename_et"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
+        android:hint="영화 제목"
+        android:background="@drawable/memo_border"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/diary_coment_et"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
         android:hint="내용"
         android:gravity="start"
         android:padding="16dp"
-        android:background="@drawable/memo_border"/>
+        android:background="@drawable/memo_border"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -49,6 +44,7 @@
         android:text="작성 완료"
         android:textColor="@color/black"
         android:fontFamily="@font/gowundodum_regular"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:onClick="clickSave"/>
 
 </LinearLayout>
