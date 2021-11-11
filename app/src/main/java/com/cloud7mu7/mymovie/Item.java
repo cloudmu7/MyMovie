@@ -11,7 +11,7 @@ public class Item {
     public Item(){
     }
 
-    public Item(int no, String title, String moviename, String coment){
+    public Item(int no, String s, String title, String moviename, String coment){
         this.no = no;
         this.title = title;
         this.day = day;

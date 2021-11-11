@@ -26,7 +26,7 @@ public class DiaryAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View itemview = inflater.inflate(R.layout.activity_diary, parent, false);
+        View itemview = inflater.inflate(R.layout.diary_item, parent, false);
         VH vh = new VH(itemview);
         return vh;
     }
