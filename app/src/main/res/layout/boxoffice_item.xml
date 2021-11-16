@@ -16,8 +16,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="130dp"
+            android:orientation="vertical"
+            android:background="@drawable/boxoffice_background">
 
             <TextView
                 android:id="@+id/movie_rank"
@@ -37,7 +38,7 @@
                 android:padding="6dp"
                 android:text="영화 이름"
                 android:textSize="25dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/gowundodum_regular"/>
@@ -49,7 +50,7 @@
                 android:padding="6dp"
                 android:text="날짜 : "
                 android:layout_gravity="bottom|center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:fontFamily="@font/gowundodum_regular"/>
 
             <TextView
@@ -59,7 +60,7 @@
                 android:text="관객 수 : "
                 android:layout_gravity="bottom|center"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:fontFamily="@font/gowundodum_regular"/>
 
 

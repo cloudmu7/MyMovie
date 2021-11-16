@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -26,6 +27,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import retrofit2.Call;
@@ -44,7 +46,7 @@ public class CinemaMapActivity extends AppCompatActivity {
     Location mylocation;
     FusedLocationProviderClient locationProviderClient;
 
-    public SearchLocalApiResponse searchLocalApiResponse;
+    SearchLocalApiResponse searchLocalApiResponse;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -53,56 +55,14 @@ public class CinemaMapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinema_map);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        SupportMapFragment mapFragment = (SupportMapFragment) fragmentManager.findFragmentById(R.id.cinemaFm);
+
 
         String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
         int checkResult = checkSelfPermission(permissions[0]);
         if (checkResult == PackageManager.PERMISSION_DENIED) requestPermissions(permissions, 10);
         else requestMyLocation();
 
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(@NonNull GoogleMap googleMap) {
-                LatLng nowplace = new LatLng(mylocation.getLatitude(), mylocation.getLongitude());
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowplace, 15));
 
-                if (ActivityCompat.checkSelfPermission(CinemaMapActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(CinemaMapActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                }
-                googleMap.setMyLocationEnabled(true);
-
-
-                for (Place place : searchLocalApiResponse.documents){
-                    double latitode = Double.parseDouble(place.y);
-                    double longitude = Double.parseDouble(place.x);
-                    LatLng position = new LatLng(latitode, longitude);
-
-                    //마커 옵션 객체를 통해 마커의 설정
-                    MarkerOptions options = new MarkerOptions().position(position).title(place.place_name).snippet(place.distance + "m");
-                    googleMap.addMarker(options).setTag(place.place_url);
-                }
-
-                MarkerOptions marker = new MarkerOptions();
-                marker.position(nowplace);
-                marker.title("현재 위치");
-                marker.snippet("테스트 문구");
-//                marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_action));
-
-//                googleMap.addMarker(marker);
-//
-//                UiSettings settings = googleMap.getUiSettings();
-//                settings.setZoomControlsEnabled(true);
-//
-//                settings.setMyLocationButtonEnabled(true);
-//
-//                if (ActivityCompat.checkSelfPermission(CinemaMapActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(CinemaMapActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-//                    return;
-//                }
-//                googleMap.setMyLocationEnabled(true);
-
-
-            }
-        });
 
 //        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
 //            int checkResult = checkCallingPermission(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -113,6 +73,8 @@ public class CinemaMapActivity extends AppCompatActivity {
 //        }
 
     }
+
+
 
     void requestMyLocation() {
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -135,15 +97,12 @@ public class CinemaMapActivity extends AppCompatActivity {
         public void onLocationResult(@NonNull LocationResult locationResult) {
             super.onLocationResult(locationResult);
 
-            //위치결과 객체로부터 내 위치 정보 얻기
             mylocation = locationResult.getLastLocation();
 
-//            Toast.makeText(MainActivity.this, ""+mylocation.getLatitude(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(CinemaMapActivity.this, ""+mylocation.getLatitude(), Toast.LENGTH_SHORT).show();
 
-            //위치 얻어왔으니 더이상 업데이트x
             locationProviderClient.removeLocationUpdates(locationCallback);
 
-            //위치정보를 얻었으니 카카오 키워드 로컬 검색 시작
             searchPlace();
         }
     };
@@ -163,6 +122,8 @@ public class CinemaMapActivity extends AppCompatActivity {
             public void onResponse(Call<SearchLocalApiResponse> call, Response<SearchLocalApiResponse> response) {
                 searchLocalApiResponse = response.body();
 
+                showmap();
+
             }
 
             @Override
@@ -170,6 +131,55 @@ public class CinemaMapActivity extends AppCompatActivity {
                 Toast.makeText(CinemaMapActivity.this, "서버 오류입니다.\n잠시 뒤에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    void showmap(){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        SupportMapFragment mapFragment = (SupportMapFragment) fragmentManager.findFragmentById(R.id.cinemaFm);
+
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(@NonNull GoogleMap googleMap) {
+
+//                LatLng nowplace = new LatLng(37.560787455939014, 127.03466122564981);
+                LatLng nowplace = new LatLng(mylocation.getLatitude(), mylocation.getLongitude());
+
+
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowplace, 16));
+
+                if (ActivityCompat.checkSelfPermission(CinemaMapActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(CinemaMapActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                }
+                googleMap.setMyLocationEnabled(true);
+
+                googleMap.getUiSettings().setZoomControlsEnabled(true);
+                googleMap.getUiSettings().setZoomGesturesEnabled(true);
+
+                for (Place place : searchLocalApiResponse.documents){
+                    double latitode = Double.parseDouble(place.y);
+                    double longitude = Double.parseDouble(place.x);
+                    LatLng position = new LatLng(latitode, longitude);
+
+                    //마커 옵션 객체를 통해 마커의 설정
+                    MarkerOptions options = new MarkerOptions().position(position).title(place.place_name).snippet(place.distance + "m");
+                    googleMap.addMarker(options).setTag(place.place_url);
+                }
+
+                MarkerOptions marker = new MarkerOptions();
+                marker.position(nowplace);
+                marker.title("현재 위치");
+                marker.snippet("테스트 문구");
+
+                googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(@NonNull Marker marker) {
+                        Intent intent = new Intent(CinemaMapActivity.this, PlaceUrlActivity.class);
+                        intent.putExtra("place_url", marker.getTag().toString());
+                        startActivity(intent);
+                    }
+                });
+
+            }
+        });
     }
 }

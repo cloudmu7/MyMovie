@@ -37,8 +37,9 @@ public class DiaryAdapter extends RecyclerView.Adapter {
 
         Item item = items.get(position);
 
-        vh.tvTitle.setText(item.title);
-        vh.tvday.setText(item.day);
+//        vh.tvNo.setText(item.no);
+        vh.tvTitle.setText(item.day);
+        vh.tvday.setText(item.title);
         vh.tvMoviename.setText(item.moviename);
         vh.tvcoment.setText(item.coment);
 
@@ -51,6 +52,7 @@ public class DiaryAdapter extends RecyclerView.Adapter {
 
     class VH extends RecyclerView.ViewHolder{
 
+//        TextView tvNo;
         TextView tvTitle;
         TextView tvMoviename;
         TextView tvday;
@@ -59,6 +61,7 @@ public class DiaryAdapter extends RecyclerView.Adapter {
         public VH(@NonNull View itemView) {
             super(itemView);
 
+//            tvNo = itemView.findViewById(R.id.diary_no);
             tvTitle = itemView.findViewById(R.id.diary_title);
             tvMoviename = itemView.findViewById(R.id.diary_moviename);
             tvday = itemView.findViewById(R.id.diary_day);

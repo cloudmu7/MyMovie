@@ -66,7 +66,7 @@ public class DiaryWriteActivity extends AppCompatActivity {
                     final StringBuffer buffer = new StringBuffer();
                     String line = reader.readLine();
                     while (line!=null){
-                        buffer.append(line+"/n");
+                        buffer.append(line+"\n");
                         line = reader.readLine();
                     }
 
@@ -85,6 +85,8 @@ public class DiaryWriteActivity extends AppCompatActivity {
 
             }
         }.start();
+
+
 
     }
 }

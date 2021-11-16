@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import java.io.BufferedReader;
@@ -79,7 +80,7 @@ public class DiaryActivity extends AppCompatActivity {
                     String[] rows = data.split("@");
                     for(String row : rows){
                         String[] datas = row.split(",");
-                        if(datas.length !=4) continue;
+                        if(datas.length !=5) continue;
 
                         int no = Integer.parseInt(datas[0]);
                         String title = datas[1];
@@ -87,15 +88,20 @@ public class DiaryActivity extends AppCompatActivity {
                         String moviename = datas[3];
                         String coment = datas[4];
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Item item = new Item(no, title, day, moviename, coment);
-                                items.add(0,item);
-                                diaryAdapter.notifyItemInserted(0);
-                            }
-                        });
+                        Item item = new Item(no, title, day, moviename, coment);
+                        items.add(0,item);
+                        Log.i("TAG", items.size()+"");
+
+
                     }
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            diaryAdapter.notifyDataSetChanged();
+
+                        }
+                    });
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();

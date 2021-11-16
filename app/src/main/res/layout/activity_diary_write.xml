@@ -6,45 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".DiaryWriteActivity"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:layout_margin="10dp">
+    android:background="@drawable/main_background">
 
-    <EditText
-        android:id="@+id/diary_title_et"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="제목"
-        android:background="@drawable/memo_border"
-        android:padding="16dp"/>
-
-    <EditText
-        android:id="@+id/diary_moviename_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="영화 제목"
-        android:background="@drawable/memo_border"
+        android:layout_height="match_parent"
+        tools:context=".DiaryWriteActivity"
+        android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_margin="10dp">
 
-    <EditText
-        android:id="@+id/diary_coment_et"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:hint="내용"
-        android:gravity="start"
-        android:padding="16dp"
-        android:background="@drawable/memo_border"
-        android:layout_marginTop="16dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:backgroundTint="#F8DDD3"
-        android:text="작성 완료"
-        android:textColor="@color/black"
-        android:fontFamily="@font/gowundodum_regular"
-        android:textStyle="bold"
-        android:onClick="clickSave"/>
+        <EditText
+            android:id="@+id/diary_title_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="제목"
+            android:background="@drawable/memo_border"
+            android:padding="16dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/diary_moviename_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="영화 제목"
+            android:background="@drawable/memo_border"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/diary_coment_et"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:hint="내용"
+            android:gravity="start"
+            android:padding="16dp"
+            android:background="@drawable/memo_border"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:backgroundTint="#F8DDD3"
+            android:text="작성 완료"
+            android:textColor="@color/black"
+            android:fontFamily="@font/gowundodum_regular"
+            android:textStyle="bold"
+            android:onClick="clickSave"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
-    android:layout_margin="30dp"
+    android:layout_margin="24dp"
     app:cardElevation="15dp"
     app:cardPreventCornerOverlap="false">
 
@@ -13,6 +13,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+<!--        <TextView-->
+<!--            android:id="@+id/diary_no"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="1"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:fontFamily="@font/gowundodum_regular"-->
+<!--            android:textSize="15dp"-->
+<!--            android:paddingTop="12dp"-->
+<!--            android:background="#FBE5D7"-->
+<!--            android:gravity="center"/>-->
+
         <TextView
             android:id="@+id/diary_title"
             android:layout_width="match_parent"
@@ -20,7 +32,7 @@
             android:text="제목"
             android:textColor="@color/black"
             android:fontFamily="@font/gowundodum_regular"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:padding="13dp"
             android:background="#FBE5D7"
             android:gravity="center"/>
@@ -32,7 +44,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:src="@drawable/ic_baseline_local_see_24"
+                android:src="@drawable/ticket"
                 android:padding="13dp"/>
 
             <TextView
@@ -42,7 +54,8 @@
                 android:text="영화 제목 작성"
                 android:textSize="25dp"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_alignTop="@+id/diary_day"
+                android:padding="16dp"
                 android:fontFamily="@font/gowundodum_regular"
                 android:textStyle="bold"/>
 
@@ -53,8 +66,7 @@
                 android:text="XXXX-XX-XX XX:XX"
                 android:fontFamily="@font/gowundodum_regular"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="28dp"
-                android:padding="13dp"/>
+                android:layout_marginTop="60dp"/>
 
 
         </RelativeLayout>
@@ -67,7 +79,7 @@
             android:fontFamily="@font/gowundodum_regular"
             android:text="내용"
             android:textSize="18dp"
-            android:padding="20dp"/>
+            android:padding="24dp"/>
 
 
 
